@@ -1,0 +1,76 @@
+@import 'variables';
+
+.v-lamp {
+	margin-top: 87px;
+	position: absolute;
+	left: 50%;
+	top: 44%;
+	transform: translate(-50%, -50%);
+	height: 700px;
+	display: grid;
+	grid-template-rows: repeat(3, 184px) 130px;
+	grid-template-columns: 100px;
+	align-content: center;
+	align-items: center;
+}
+
+.lamp {
+	z-index: 3;
+	width: $lamp-size;
+	height: $lamp-size;;
+	margin: 0 auto;
+	border: 1px solid #aeaeae;
+	border-radius: 50%;
+
+	&_green {
+		background: radial-gradient(circle, rgba(255,255,255,1) 11%, rgba(15,247,17,1) 80%);
+
+	}
+
+	&_red {
+		background: radial-gradient(circle, rgba(255,255,255,1) 11%, rgba(219,20,20,1) 82%);
+	}
+
+	&_yellow {
+		background: radial-gradient(circle, rgba(255,255,255,1) 11%, rgba(251,255,0,1) 80%);
+		
+	}
+
+	&_dim {
+		opacity: .4;
+		filter: none
+	}
+}
+
+.active {
+	filter: blur(.2rem);
+}
+
+.traffic-light-img {
+	z-index: 0;
+	position: absolute;
+	left: 50%;
+	top: 44%;
+	transform: translate(-50%, -50%);
+	margin: 0 auto;
+	width: $tl-img-width;
+	height: $tl-img-height;
+}		
+
+.blink {
+	animation-name: blinker;
+	animation-iteration-count: infinite;
+	animation-timing-function: cubic-bezier(1.0,0,0,1.0);
+	animation-duration: 1s;
+	-webkit-animation-name: blinker;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: cubic-bezier(1.0,0,0,1.0);
+	-webkit-animation-duration: 1s;
+}
+	
+@keyframes blinker {
+	from { opacity: 1.0; }
+	to { opacity: 0.0; }
+}
+
+@import 'media.scss';
